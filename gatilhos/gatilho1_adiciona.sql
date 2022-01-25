@@ -7,10 +7,14 @@ PRAGMA foreign_keys = ON;
 /*Impedir que seja efetuada uma venda de uma peca que esta atualmente sem stock na loja e 
 encomendar a peca ao fornecedor*/
 
+DROP TRIGGER IF EXISTS UPDATE_STOCK_QUANTIDADE;
+DROP TRIGGER IF EXISTS UPDATE_STOCK_ZERO;
+DROP TRIGGER IF EXISTS UPDATE_STOCK_PECA;
+
 CREATE TRIGGER IF NOT EXISTS UPDATE_STOCK_ZERO
 BEFORE INSERT ON PECA_VENDA
 FOR EACH ROW
-WHEN (SELECT NEW.N_PECA - STOCK 
+WHEN (SELECT STOCK - NEW.N_PECA
       FROM PECA
       WHERE ID_PECA = NEW.ID_PECA) <= 0
 BEGIN 
@@ -18,12 +22,23 @@ BEGIN
     iremos iniciar uma encomenda da quantidade pretendida.');
 END;
 
-
---Realizar uma encomenda colocar o stock a 5 
-
+/*"Encomendar" pecas caso o stock baixe para menos de 5*/
 CREATE TRIGGER IF NOT EXISTS UPDATE_STOCK_QUANTIDADE
-AFTER UPDATE OF STOCK ON PECA
+AFTER UPDATE OF STOCK
+ON PECA
 FOR EACH ROW
-BEGIN 
-    UPDATE PECA SET STOCK = 5 WHERE NEW.ID_PECA = PECA.ID_PECA;
+BEGIN
+      UPDATE PECA 
+      SET STOCK = 5 
+      WHERE STOCK < 5;
+END;
+
+/*Subtrair o numero de peças usadas a tabela de venda"*/
+CREATE TRIGGER IF NOT EXISTS UPDATE_STOCK_PECA
+AFTER INSERT ON PECA_VENDA
+FOR EACH ROW
+BEGIN
+      UPDATE PECA
+      SET STOCK = STOCK - NEW.N_PECA
+      WHERE ID_PECA = NEW.ID_PECA;
 END;
