@@ -1,13 +1,16 @@
-/*
-*Average de lucro das vendas mensais
-*
-*/
+
+--Average de lucro das vendas mensais
+
 .mode columns
 .headers on
 .nullvalue NULL 
 
 
-SELECT CASE strftime('%m', DATA_SERVICO)
+SELECT * FROM funcionario;
+
+
+
+/*SELECT CASE strftime('%m', DATA_SERVICO)
 when '01' then 'Janeiro'
 when '02' then 'Fevereiro' 
 when '03' then 'Marco' 
@@ -22,4 +25,4 @@ when '11' then 'Novembro'
 when '12' then 'Dezembro' 
 else '' end AS "Mes",
 AVG(LUCRO) as "Lucro"
-FROM VENDA GROUP BY "Mes";
+FROM VENDA GROUP BY "Mes";*/
