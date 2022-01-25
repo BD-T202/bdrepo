@@ -15,5 +15,5 @@ CREATE TRIGGER IF NOT EXISTS checkSalarioMensal
                     AND SALARIO_MENSAL.MES = NEW.MES 
                     AND SALARIO_MENSAL.ANO = NEW.ANO)
     BEGIN
-        SELECT RAISE(Abort,"Ja existe um registo para esse funcionario nessa data");
+        SELECT RAISE(Abort,"ja existe um funcionario com salario nessa data ou o funcionario nao existe");
     END;
