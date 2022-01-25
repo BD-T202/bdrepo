@@ -1,10 +1,9 @@
 -- Average de lucro das vendas mensais
-
 .mode columns
 .headers on
 .nullvalue NULL 
 
--- Agrega o funcionario com as horas que trabalhou e a sua especialidade
+-- Agrega o funcionario com as horas que trabalhou e a sua especialidade.
 DROP VIEW IF EXISTS FUNCS;
 CREATE VIEW FUNCS AS
 SELECT FUNCIONARIO.ID_FUNCIONARIO AS ID,
@@ -13,14 +12,17 @@ FUNCIONARIO.ID_ESPECIALIDADE
 FROM FUNCIONARIO
 NATURAL JOIN SALARIO_MENSAL
 NATURAL JOIN INCREMENTO_REPARACAO;
+SELECT * FROM REPARACAO;
 
--- Lucro final depois de descontado a comissao dos trabalhadores
+-- Lucro final depois de descontado a comissao dos trabalhadores.
 DROP VIEW IF EXISTS LIQ;
 CREATE VIEW LIQ AS
-SELECT SUM(CUSTO) - SUM(HORAS_TRABALHO*ESPECIALIDADE.PRECO_HORA) AS "Lucro liquido" FROM ESPECIALIDADE NATURAL JOIN FUNCS JOIN REPARACAO;
+SELECT SUM(CUSTO) - SUM(HORAS_TRABALHO*ESPECIALIDADE.PRECO_HORA) AS 'Lucro liquido' FROM ESPECIALIDADE NATURAL JOIN FUNCS JOIN REPARACAO ;
 
--- Seleciona o lucro por mes considerando os gastos mensais com comissoes totais dos trabalhadores especializados da empresa e vendas
--- Calculando preco por hora com as horas trabalhadas mensais
+SELECT strftime('%m', DATA_SERVICO),* FROM VENDA ORDER BY strftime('%m', DATA_SERVICO) ASC;
+
+-- Seleciona o lucro por mes considerando os gastos mensais com comissoes totais dos trabalhadores especializados da empresa e vendas.
+-- Calculando preco por hora com as horas trabalhadas mensais.
 
 SELECT CASE strftime('%m', DATA_SERVICO)
 when '01' then 'Janeiro'
@@ -35,7 +37,8 @@ when '09' then 'Setembro'
 when '10' then 'Outubro' 
 when '11' then 'Novembro' 
 when '12' then 'Dezembro' 
-else '' end AS "Mes",
-LUCRO + "Lucro Liquido" as "lucro reparacoes + vendas" FROM VENDA JOIN LIQ GROUP BY "Mes";
+else '' end AS ' Mes' ,
+LUCRO + 'Lucro Liquido'  as 'lucro reparacoes + vendas'  
+FROM VENDA JOIN LIQ GROUP BY 'Mes';
 
 
