@@ -4,7 +4,7 @@
 
 PRAGMA foreign_keys = ON;
 
---Ao adicionar um registo ao salario mensal verifica se esse funcionario ja nao tem salario desse mes.
+--Ao adicionar um registo ao salario mensal verifica se esse funcionario ja nao tem salario nesse mes.
 CREATE TRIGGER IF NOT EXISTS checkSalarioMensal
     BEFORE INSERT ON SALARIO_MENSAL
     FOR EACH ROW
