@@ -18,8 +18,7 @@ WHEN (SELECT STOCK - NEW.N_PECA
       FROM PECA
       WHERE ID_PECA = NEW.ID_PECA) <= 0
 BEGIN 
-      SELECT RAISE(ABORT,'Número de peças inválido pois a quantidade pretendida é maior que o stock disponivel,
-    iremos iniciar uma encomenda da quantidade pretendida.');
+      SELECT RAISE(ABORT,'Número de peças inválido pois a quantidade pretendida é maior que o stock disponivel.');
 END;
 
 /*"Encomendar" pecas caso o stock baixe para menos de 5*/
@@ -30,7 +29,7 @@ FOR EACH ROW
 BEGIN
       UPDATE PECA 
       SET STOCK = 5 
-      WHERE STOCK < 5;
+      WHERE STOCK < 5 AND ID_PECA = NEW.ID_PECA;
 END;
 
 /*Subtrair o numero de peças usadas a tabela de venda"*/
