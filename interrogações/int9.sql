@@ -2,7 +2,7 @@
 .headers on
 .nullvalue NULL 
 
--- Interrogacao: Marca mais usada para pecas nas reparacoes.
+-- Interrogacao 9: Marca mais usada para pecas nas reparacoes.
 
 -- Quantidade de pecas usadas.
 DROP VIEW IF EXISTS MAXIMO;
