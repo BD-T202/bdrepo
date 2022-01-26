@@ -20,7 +20,7 @@ CREATE TRIGGER IF NOT EXISTS CHECK_MORADA
 CREATE TRIGGER IF NOT EXISTS CHECK_LOJA
     BEFORE INSERT ON VENDA
     FOR EACH ROW
-    WHEN NEW.DESIGNACAO = 'Venda-Loja' AND (NEW.MORADA_CARGA != 'Rua Bartolomeu Perestrelo 4400-179 Vila Nova de Gaia' OR NEW.MORADA_DESCARGA != 'Rua Bartolomeu Perestrelo 4400-179 Vila Nova de Gaia AND NEW.DESIGNACAO') 
+    WHEN NEW.DESIGNACAO = 'Venda-Loja' AND (NEW.MORADA_CARGA != 'Rua Bartolomeu Perestrelo 4400-179 Vila Nova de Gaia' OR NEW.MORADA_DESCARGA != 'Rua Bartolomeu Perestrelo 4400-179 Vila Nova de Gaia') 
     BEGIN
         SELECT RAISE(Abort,"Nao e possivel fazer uma venda na loja com moradas incorretas");
     END;
