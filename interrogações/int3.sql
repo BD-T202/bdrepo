@@ -1,6 +1,6 @@
 /*Query 3:
 
-Listagem do armazem com a maior area de um fornecedor (caso o fornecedor tenha dois ou mais armazens)
+Armazens com a maior area de um fornecedor (caso o fornecedor tenha dois ou mais armazens)
 com o numero de pecas disponiveis,
 com o maior valor final (superior ou igual a 500) e stock maior ou igual a 5 unidades.
 
