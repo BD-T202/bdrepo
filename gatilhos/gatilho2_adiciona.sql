@@ -4,12 +4,12 @@
 
 PRAGMA foreign_keys = ON;
 
-
 DROP TRIGGER IF EXISTS CHECK_SALARIO_MENSAL;
 DROP TRIGGER IF EXISTS CHECK_DATE;
 
---Cada funcionario so pode ter um salario num determinado mes. Logo,
---Ao adicionar um registo ao salario mensal verifica se esse funcionario ja nao tem salario nesse mes.
+/*Cada funcionario so pode ter um salario num determinado mes. 
+Logo,ao adicionar um registo ao salario mensal verifica se esse funcionario ja nao tem salario nesse mes.*/
+
 CREATE TRIGGER IF NOT EXISTS CHECK_DATE
     BEFORE INSERT ON SALARIO_MENSAL
     FOR EACH ROW
@@ -20,7 +20,7 @@ CREATE TRIGGER IF NOT EXISTS CHECK_DATE
                     AND SALARIO_MENSAL.MES = NEW.MES 
                     AND SALARIO_MENSAL.ANO = NEW.ANO)
     BEGIN
-        SELECT RAISE(Abort,"ja existe um funcionario com salario nessa data");
+        SELECT RAISE(Abort,"O funcionario já possui um salário nessa data.");
     END;
 
 
@@ -31,5 +31,5 @@ CREATE TRIGGER IF NOT EXISTS CHECK_SALARIO_MENSAL
         FROM FUNCIONARIO 
         WHERE FUNCIONARIO.ID_FUNCIONARIO = NEW.ID_FUNCIONARIO) > NEW.SALARIO
     BEGIN
-        SELECT RAISE(Abort,"o salario inserido é invalido");
+        SELECT RAISE(Abort,"O salário inserido é inválido.");
     END;
