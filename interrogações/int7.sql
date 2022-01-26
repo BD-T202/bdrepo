@@ -2,24 +2,29 @@
 .headers on
 .nullvalue NULL 
 
--- Interrogacao 7: uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao
+-- Interrogacao 7: Funcionario do mes (uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao).
 
--- Funcionario com o maior numero de Vendas
-
-SELECT NOME,MAX(COUNT_TABLE.COUNT_VENDA) AS NR_VENDAS
+-- Funcionario com o maior numero de Vendas.
+DROP VIEW IF EXISTS MAX_R;
+CREATE VIEW MAX_R AS
+SELECT NOME ,MAX(COUNT_TABLE.COUNT_VENDA) AS NR_VENDAS
 FROM FUNCIONARIO JOIN
         (SELECT ID_FUNCIONARIO, COUNT(*) AS COUNT_VENDA
         FROM INCREMENTO_VENDA
         GROUP BY ID_FUNCIONARIO) AS COUNT_TABLE
-ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO
+ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO;
 
-UNION
-
---Funcionario com o maior numero de reparações
-
+-- Funcionario com o maior numero de Reparacoes.
+DROP VIEW IF EXISTS MAX_V;
+CREATE VIEW MAX_V AS
 SELECT NOME,MAX(COUNT_TABLE.COUNT_REPARACAO) AS NR_REPARACOES
 FROM FUNCIONARIO JOIN
         (SELECT ID_FUNCIONARIO, COUNT(*) AS COUNT_REPARACAO
         FROM INCREMENTO_REPARACAO
         GROUP BY ID_FUNCIONARIO) AS COUNT_TABLE
 ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO;
+
+-- Selecionar o funcionario do mes baseado da uniao dos dois maximos.
+SELECT NOME as 'Funcionario do mes' FROM MAX_R 
+UNION
+SELECT NOME FROM MAX_R;
