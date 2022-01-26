@@ -33,7 +33,8 @@ FROM FUNCIONARIO JOIN
 ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO;
 
 -- Selecionar o funcionario(s) do mes baseado da uniao dos dois maximos.
+-- O funcionario com o maior numero de vendas pode ser o funcionario com o maior numero de reparacoes.
 SELECT NOME AS'Funcionario(s) do mes' FROM MAX_R 
 UNION
-SELECT NOME FROM MAX_V;
+SELECT NOME FROM MAX_V
 ORDER BY NOME DESC;
