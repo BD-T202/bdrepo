@@ -1,7 +1,8 @@
--- Lucro da loja desde a sua abertura.
 .mode columns
 .headers on
 .nullvalue NULL 
+
+-- Interrogacao: Lucro da loja desde a sua abertura.
 
 -- Agrega o funcionario com as horas que trabalhou e a sua especialidade e salario base.
 DROP VIEW IF EXISTS CUSTO_FUNCIONARIOS;
