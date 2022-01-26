@@ -7,10 +7,6 @@ PRAGMA foreign_keys = ON;
 /*Impedir que seja efetuada uma venda de uma peca que esta atualmente sem stock na loja e 
 encomendar a peca ao fornecedor*/
 
-DROP TRIGGER IF EXISTS UPDATE_STOCK_QUANTIDADE;
-DROP TRIGGER IF EXISTS UPDATE_STOCK_ZERO;
-DROP TRIGGER IF EXISTS UPDATE_STOCK_PECA;
-
 CREATE TRIGGER IF NOT EXISTS UPDATE_STOCK_ZERO
 BEFORE INSERT ON PECA_VENDA
 FOR EACH ROW

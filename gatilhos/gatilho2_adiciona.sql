@@ -4,9 +4,6 @@
 
 PRAGMA foreign_keys = ON;
 
-DROP TRIGGER IF EXISTS CHECK_SALARIO_MENSAL;
-DROP TRIGGER IF EXISTS CHECK_DATE;
-
 /*Cada funcionario so pode ter um salario num determinado mes. 
 Logo,ao adicionar um registo ao salario mensal verifica se esse funcionario ja nao tem salario nesse mes.*/
 
