@@ -1,13 +1,11 @@
-/*
-* Uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao
-*/
-
 .mode columns
 .headers on
 .nullvalue NULL 
 
+-- Interrogacao 7: uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao
 
---Funcionario com o maior numero de Vendas
+-- Funcionario com o maior numero de Vendas
+
 SELECT NOME,MAX(COUNT_TABLE.COUNT_VENDA) AS NR_VENDAS
 FROM FUNCIONARIO JOIN
         (SELECT ID_FUNCIONARIO, COUNT(*) AS COUNT_VENDA
@@ -16,7 +14,9 @@ FROM FUNCIONARIO JOIN
 ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO
 
 UNION
+
 --Funcionario com o maior numero de reparações
+
 SELECT NOME,MAX(COUNT_TABLE.COUNT_REPARACAO) AS NR_REPARACOES
 FROM FUNCIONARIO JOIN
         (SELECT ID_FUNCIONARIO, COUNT(*) AS COUNT_REPARACAO
