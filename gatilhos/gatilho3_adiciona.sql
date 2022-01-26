@@ -6,7 +6,6 @@ Simultaneamente, verifica-se se nas vendas efetuadas na loja, ambas as moradas s
 referentes à localização da loja. 
 */
 
-
 .mode columns
 .header on
 .nullvalue NULL

@@ -1,6 +1,3 @@
-.mode columns
-.headers on
-.nullvalue NULL 
 
 /*Interrogação 9:
 
@@ -9,6 +6,10 @@ no serviço de reparação.
 
 Ordem pelas marcas favoritas descendentemente.
 */
+
+.mode columns
+.headers on
+.nullvalue NULL 
 
 -- Quantidade de pecas usadas.
 DROP VIEW IF EXISTS MAXIMO;

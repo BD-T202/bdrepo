@@ -1,6 +1,3 @@
-.mode columns
-.headers on
-.nullvalue NULL 
 
 /*Interrogação 10:
 
@@ -9,6 +6,10 @@ aliado a um respetivo bónus relativo ao subsídio de Natal
 (assumindo que os funcionários trabalharam todos 176 horas por base, sendo que 176 = 8 * 22).
 
 Ordenado por euros por horas*/
+
+.mode columns
+.headers on
+.nullvalue NULL 
 
 SELECT NOME, 
 SUM(SALARIO_MENSAL.SALARIO) AS SALARIO,
