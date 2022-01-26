@@ -4,10 +4,6 @@
 
 PRAGMA foreign_keys = ON;
 
-DELETE FROM VENDA WHERE ID_VENDA = 40;
-DELETE FROM VENDA WHERE ID_VENDA = 41;
-
-
 .print ''
 .print 'Vamos tentar adicionar um registo de uma venda online com a mesma morada de descarga e carga'
 .print ''
