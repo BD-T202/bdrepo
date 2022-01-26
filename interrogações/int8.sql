@@ -1,44 +1,27 @@
--- Average de lucro das vendas mensais
+-- Lucro da loja desde a sua abertura.
 .mode columns
 .headers on
 .nullvalue NULL 
 
 -- Agrega o funcionario com as horas que trabalhou e a sua especialidade.
-DROP VIEW IF EXISTS FUNCS;
-CREATE VIEW FUNCS AS
+DROP VIEW IF EXISTS CUSTO_FUNCIONARIOS;
+CREATE VIEW CUSTO_FUNCIONARIOS AS
 SELECT FUNCIONARIO.ID_FUNCIONARIO AS ID,
 INCREMENTO_REPARACAO.HORAS AS HORAS_TRABALHO,
 FUNCIONARIO.ID_ESPECIALIDADE
 FROM FUNCIONARIO
 NATURAL JOIN SALARIO_MENSAL
 NATURAL JOIN INCREMENTO_REPARACAO;
-SELECT * FROM REPARACAO;
 
--- Lucro final depois de descontado a comissao dos trabalhadores.
-DROP VIEW IF EXISTS LIQ;
-CREATE VIEW LIQ AS
-SELECT SUM(CUSTO) - SUM(HORAS_TRABALHO*ESPECIALIDADE.PRECO_HORA) AS 'Lucro liquido' FROM ESPECIALIDADE NATURAL JOIN FUNCS JOIN REPARACAO ;
+-- Calcula a despesa total com pagementos aos funcionarios que estiveram presentes na reparacao.
+DROP VIEW IF EXISTS CUSTO_TOTAL;
+CREATE VIEW CUSTO_TOTAL AS
+SELECT SUM(HORAS_TRABALHO * PRECO_HORA) AS CUSTO_T FROM FUNCS NATURAL JOIN ESPECIALIDADE;
 
-SELECT strftime('%m', DATA_SERVICO),* FROM VENDA ORDER BY strftime('%m', DATA_SERVICO) ASC;
+-- Calcula o lucro final liquido das reparacoes.
+DROP VIEW IF EXISTS LUCRO_REPARACOES;
+CREATE VIEW LUCRO_REPARACOES AS
+SELECT SUM(CUSTO)-CUSTO_T as LUCRO_R FROM REPARACAO JOIN CUSTO_TOTAL;
 
--- Seleciona o lucro por mes considerando os gastos mensais com comissoes totais dos trabalhadores especializados da empresa e vendas.
--- Calculando preco por hora com as horas trabalhadas mensais.
-
-SELECT CASE strftime('%m', DATA_SERVICO)
-when '01' then 'Janeiro'
-when '02' then 'Fevereiro' 
-when '03' then 'Marco' 
-when '04' then 'Abril' 
-when '05' then 'Maio' 
-when '06' then 'Junho' 
-when '07' then 'Julho'
-when '08' then 'Agosto' 
-when '09' then 'Setembro' 
-when '10' then 'Outubro' 
-when '11' then 'Novembro' 
-when '12' then 'Dezembro' 
-else '' end AS ' Mes' ,
-LUCRO + 'Lucro Liquido'  as 'lucro reparacoes + vendas'  
-FROM VENDA JOIN LIQ GROUP BY 'Mes';
-
-
+-- Junta o lucro proveniente das reparacoes com o lucro das vendas, obtendo assim o lucro final da loja.
+SELECT SUM(LUCRO) + LUCRO_R as "Lucro desde abertura"FROM VENDA JOIN LUCRO_REPARACOES;
