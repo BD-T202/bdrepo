@@ -1,2 +1,4 @@
+/*Aplicação de drops ao gatilhos no ficheiro 2*/
+
 DROP TRIGGER IF EXISTS CHECK_SALARIO_MENSAL;
 DROP TRIGGER IF EXISTS CHECK_DATE;

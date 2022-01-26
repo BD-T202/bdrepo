@@ -1,3 +1,7 @@
+
+/*Verificação e aplicação de testes aos gatilhos implementados
+no ficheiro 1 relativos às vendas*/
+
 .mode columns
 .header on
 .nullvalue NULL

@@ -1,3 +1,6 @@
+/*Verificação e aplicação de testes aos gatilhos implementados
+no ficheiro 2 relativos aos salários mensais.*/
+
 .mode columns
 .header on
 .nullvalue NULL

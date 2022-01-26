@@ -1,3 +1,7 @@
+
+/*Verificação e aplicação de testes aos gatilhos implementados
+no ficheiro 3 relativos às vendas online e vendas em loja.*/
+
 .mode columns
 .header on
 .nullvalue NULL
