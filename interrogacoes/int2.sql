@@ -1,10 +1,9 @@
--- Query 2:
+/* Interrogação 2:
 
--- Funcionários que realizaram alguma reparação com salário mensal igual ou superior a 1000 euros no ano 2021.
+Listagem dos Funcionários que realizaram algum tipo de reparação e possuam um salário
+mensal igual ou superior a 1000 euros no ano de 2021.
 
---  Visualização do nome dos funcionários, do salario base, salario mensal e o respetivo bónus arredondado a uma casa decimal.
-
--- Ordenado descendentemente por salário mensal, e ascendentemente pelo nome e bónus.
+Ordenado descendentemente por salário mensal, e ascendentemente pelo bónus*/
 
 .mode columns
 .headers on

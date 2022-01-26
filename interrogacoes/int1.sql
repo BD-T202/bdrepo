@@ -1,9 +1,8 @@
-/*Query 1: 
+/*Interrogação 1: 
 
-Nome e número de telemóvel dos clientes com o maior número de compras na loja,
-o total de valor gasto e o desconto acumulado em loja para ser usado numa próxima compra (7,5% do valor gasto).
-
-Visualização do nome dos clientes, do número de compras e do valor gasto por cada um destes arredondado a uma casa decimal.
+Listagem dos clientes com o maior número de compras efetuadas, juntamente com o total
+de valor gasto e o desconto acumulado pelos mesmos para ser utilizado numa próxima
+compra (7,5% do valor). 
 
 Ordenado descendentemente pelo número de compras e valor gasto.
 */

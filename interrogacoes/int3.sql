@@ -1,12 +1,8 @@
-/*Query 3:
+/*Interrogação 3:
 
-Armazens com a maior area de um fornecedor (caso o fornecedor tenha dois ou mais armazens)
-com o numero de pecas disponiveis,
-com o maior valor final (superior ou igual a 500) e stock maior ou igual a 5 unidades.
-
-Visualizacao do nome do armazem, do modelo e stock da peca,
-do valor total de compra ao fornecedor e de venda ao consumidor final (cliente),
-bem como o lucro potencial total da mesma, tudo arredondado a duas casas decimais.
+Listagem dos Armazéns com a maior área de um respetivo fornecedor (caso este tenha
+mais do que um armazém), com o número de peças disponíveis que têm o maior valor final
+e stock igual ou superior a 5 unidades. 
 
 Ordenado descendentemente pela peca com o maior potencial de lucro, 
 e ascendentemente pelo nome do armazem.*/

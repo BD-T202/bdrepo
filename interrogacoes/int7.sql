@@ -1,8 +1,16 @@
+
+/*Interrogação 7:
+
+Exibição dos dois funcionários mais produtivos da loja. O funcionário responsável pelo
+maior número de vendas unido ao funcionário com o maior número de reparações
+realizadas. 
+
+Ordenado descendentemente pelo nome.
+*/
+
 .mode columns
 .headers on
 .nullvalue NULL 
-
--- Interrogacao 7: Funcionario(s) do mes (uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao).
 
 -- Funcionario com o maior numero de Vendas.
 DROP VIEW IF EXISTS MAX_R;
@@ -25,6 +33,7 @@ FROM FUNCIONARIO JOIN
 ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO;
 
 -- Selecionar o funcionario(s) do mes baseado da uniao dos dois maximos.
-SELECT NOME as 'Funcionario(s) do mes' FROM MAX_R 
+SELECT NOME AS'Funcionario(s) do mes' FROM MAX_R 
 UNION
 SELECT NOME FROM MAX_V;
+ORDER BY NOME DESC;

@@ -1,11 +1,8 @@
 
 /* Interrogacao 4:
 
-Media dos Salarios dos Funcionarios especialistas em computadores,
-excluindo os profissionais relacionados com a administracao.
-
-Listagem das especialidades, da media dos respetivos salarios,
-e do bonus da especialidade por hora.
+Média dos salários dos Funcionários especialistas em computadores, excluindo os
+profissionais relacionados com a administração da loja. 
 
 Ordenados descendentemente pelo valor de salario medio e preco_hora.
 */

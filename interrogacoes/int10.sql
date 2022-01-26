@@ -2,8 +2,13 @@
 .headers on
 .nullvalue NULL 
 
--- Interrogacao 10: Vencimento por hora de cada funcionario, num dado mes de um certo ano. Neste caso no mes de dezembro de 2021.
---(Assumindo que os funcionários trabalharam todos 176 horas por base, sendo que 176 = 8 * 22)
+/*Interrogação 10:
+
+Enumeração do vencimento de cada funcionário por hora no mês de dezembro de 2021,
+aliado a um respetivo bónus relativo ao subsídio de Natal
+(assumindo que os funcionários trabalharam todos 176 horas por base, sendo que 176 = 8 * 22).
+
+Ordenado por euros por horas*/
 
 SELECT NOME, 
 SUM(SALARIO_MENSAL.SALARIO) AS SALARIO,

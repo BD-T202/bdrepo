@@ -1,12 +1,10 @@
 /*Interrogacao 5:
 
-Listagem das vendas online mais lucrativas juntamente com o nome dos funcionarios
-responsaveis pelas mesmas.
+Consulta das vendas online mais lucrativas aliadas ao nome do funcionário responsável
+pelas mesmas. 
 
 As vendas feitas online sao aquelas onde a morada de carga do produto
 e diferente da morada de descarga do produto e na designacao contem escrito Online.
-
-Listagem do modelo da peca, da quantidade comprada e do lucro das mesmas.
 
 Ordenado descendentemente pela quantidade e lucro.
 */

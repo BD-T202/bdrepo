@@ -2,7 +2,13 @@
 .headers on
 .nullvalue NULL 
 
--- Interrogacao 9: Marca mais usada para pecas nas reparacoes.
+/*Interrogação 9:
+
+Os fornecedores, caso existam mais do que um, responsáveis pelas peças mais utilizadas
+no serviço de reparação. 
+
+Ordem pelas marcas favoritas descendentemente.
+*/
 
 -- Quantidade de pecas usadas.
 DROP VIEW IF EXISTS MAXIMO;
@@ -21,4 +27,5 @@ AS T FROM MAXIMO)b ON a.QUANTIDADE = b.T;
 
 --A Peca ou pecas mais usadas nas reparacoes devolve a marca.
 SELECT NOME as 'Marcas Favoritas'
-FROM PECA NATURAL JOIN FORNECEDOR NATURAL JOIN PECA_FORNECEDOR NATURAL JOIN FAVORITES; 
+FROM PECA NATURAL JOIN FORNECEDOR NATURAL JOIN PECA_FORNECEDOR NATURAL JOIN FAVORITES
+ORDER BY 'Marcas Favoritas' DESC;

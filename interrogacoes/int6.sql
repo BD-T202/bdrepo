@@ -1,9 +1,8 @@
 /*Interrogacao 6:
 
-Listagem das designacoes das reparacoes que demoraram pelo menos 2 dias
-e o seu respetivo custo, juntamente com o seu cliente e peca utilizada na reparacao (caso exista).
-
-Visualizacao do tipo de reparacao, numero de dias que demorou e o custo.
+Quais as designações das reparações que demoram pelo menos dois dias a serem
+realizadas e o seu respetivo custo, juntamente do seu cliente e peça utilizada no mesmo
+serviço (caso tenha sido necessário). 
 
 Ordenado pelo numero de dias da reparacao.
 */

@@ -1,8 +1,15 @@
+
+/*Interrogação 8:
+
+Lucro da loja desde a sua abertura até ao momento atual, contabilizando todo o tipo de
+despesas, sendo que o lucro pode ou não ser negativo. 
+
+Ordenado pelo lucro descendentemente.
+*/
+
 .mode columns
 .headers on
 .nullvalue NULL 
-
--- Interrogacao 8: Lucro da loja desde a sua abertura.
 
 -- Agrega o funcionario com as horas que trabalhou e a sua especialidade e salario base.
 DROP VIEW IF EXISTS CUSTO_FUNCIONARIOS;
@@ -25,4 +32,5 @@ CREATE VIEW LUCRO_REPARACOES AS
 SELECT SUM(CUSTO)-CUSTO_T as LUCRO_R FROM REPARACAO JOIN CUSTO_TOTAL;
 
 -- Junta o lucro proveniente das reparacoes com o lucro das vendas, obtendo assim o lucro final da loja.
-SELECT SUM(LUCRO) + LUCRO_R as 'Lucro desde abertura' FROM VENDA JOIN LUCRO_REPARACOES;
+SELECT SUM(LUCRO) + LUCRO_R as 'Lucro desde abertura' FROM VENDA JOIN LUCRO_REPARACOES
+ORDER BY 'Lucro desde abertura' DESC;
