@@ -1,5 +1,5 @@
 /*
-* uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao
+* Uniao do funcionario com mais vendas com o funcionario com mais horas de reparacao
 */
 
 .mode columns
@@ -14,6 +14,7 @@ FROM FUNCIONARIO JOIN
         FROM INCREMENTO_VENDA
         GROUP BY ID_FUNCIONARIO) AS COUNT_TABLE
 ON COUNT_TABLE.ID_FUNCIONARIO = FUNCIONARIO.ID_FUNCIONARIO
+
 UNION
 --Funcionario com o maior numero de reparações
 SELECT NOME,MAX(COUNT_TABLE.COUNT_REPARACAO) AS NR_REPARACOES
